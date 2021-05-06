@@ -1,38 +1,5 @@
 require "http"
 
-# pools_resp = HTTP.get("https://competition.bharvest.io:1317/tendermint/liquidity/v1beta1/pools?pagination.limit=100")
-# prices_resp = HTTP.get("https://competition.bharvest.io:8081/prices")
-# if pools_resp.status.success? && prices_resp.status.success?
-#   pools = JSON.parse(pools_resp.to_s)["pools"]
-#   prices = JSON.parse(prices_resp.to_s)["prices"]
-
-#   pairs = {}
-#   pools.each do |pool|
-#     first = pool["reserve_coin_denoms"][0]
-#     second = pool["reserve_coin_denoms"][1]
-#     pair = pairs.fetch(first, {})
-#     pair[second] = prices[pool["pool_coin_denom"]]
-#     pairs[first] = pair
-
-#     pair = pairs.fetch(second, {})
-#     pair[first] = 1 / prices[pool["pool_coin_denom"]]
-#     pairs[second] = pair
-#   end
-
-#   pairs.each do |first, first_swap|
-#     first_swap.each do |second, first_swap_price|
-#       if pairs.key?(second)
-#         second_swap = pairs[second]
-#         if second_swap.key?(first)
-#           second_swap_price = second_swap[first]
-#           opportunity = second_swap_price / first_swap_price
-#           puts "Found arbitrage #{first} #{second} #{opportunity}" # if opportunity > 1.1
-#         end
-#       end
-#     end
-#   end
-# end
-
 while true
 
   pools_resp = HTTP.get("https://competition.bharvest.io:8081/pools")
