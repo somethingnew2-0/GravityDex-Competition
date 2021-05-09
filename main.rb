@@ -1,5 +1,7 @@
 require "http"
 
+triples = {}
+
 while true
 
   pools_resp = HTTP.get("https://competition.bharvest.io:8081/pools")
@@ -21,8 +23,7 @@ while true
 
     # Generate all the asset triples for an arbitrage triangle
     # Since there are two ways around the perimeter of a triangle include the triple and its reverse
-    triples = pairs.keys.combination(3).flat_map {|triple| [triple, triple.reverse] }
-
+    triples = pairs.keys.combination(3).flat_map {|triple| [triple, triple.reverse] } if triples.empty?
     system("clear")
 
     opportunities = triples.map do |triple|
@@ -37,7 +38,7 @@ while true
 
     opportunities.each do |opportunity, triple|
       first, second, third = triple
-      puts "#{sprintf("%.2f", opportunity * 100)}%  #{third} => #{second} => #{first}" if opportunity > 1
+      puts "#{sprintf("%.2f", opportunity * 100)}%  #{third} => #{second} => #{first}" if opportunity > 1.05
     end
 
   end
