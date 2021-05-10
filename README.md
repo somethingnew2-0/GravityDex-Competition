@@ -1,20 +1,18 @@
-GravityDex Competition Arbitrage
+GravityDex Competition Triangular Arbitrage
 ---
 
-Running `bundle exec ruby main.rb -t 5` will show something like the below
+This script exploits [Triangular Arbitrage](https://en.wikipedia.org/wiki/Triangular_arbitrage) on the GravityDex for their testnet competition.  Arbitrage Opportunity Profit during the GravityDex competition can be made by swapping between the listed triples, given minimal price slippage and swapping fees.
+
+Running `bundle exec ruby main.rb` will show something like the below
 
 ```
 Opportunity - Triples to Trade
-106.44%  uluna => udvpn => udsm
-106.32%  ubtsg => xrun => ugcyb
-106.08%  uregen => xrun => ugcyb
-105.79%  uakt => udvpn => udsm
-105.60%  udsm => ucom => udvpn
-105.44%  uakt => uiris => udsm
-105.05%  uxprt => xrun => ugcyb
+113.49%  ucom => uregen => udvpn
+112.20%  ucom => ubtsg => udvpn
+111.01%  ucom => uiris => udvpn
+110.08%  ucom => ungm => udvpn
+110.05%  uakt => udvpn => ucom
 ```
-
-Arbitrage Opportunity Profit during the GravityDex competition can be made by swapping between the listed triples, given minimal price slippage and swapping fees
 
 ## Usage
 ```
